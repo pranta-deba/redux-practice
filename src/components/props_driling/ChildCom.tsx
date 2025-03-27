@@ -1,3 +1,6 @@
+import React from "react";
+import MaxChild from "./MaxChild";
+
 type TProps = {
   count: number;
   setCount: React.Dispatch<React.SetStateAction<number>>;
@@ -13,6 +16,7 @@ const ChildCom = ({ count, setCount }: TProps) => {
       >
         {count}
       </button>
+      <MaxChild count={count}/>
     </div>
   );
 };
