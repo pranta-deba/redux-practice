@@ -13,9 +13,15 @@ class CounterWithClass extends React.Component {
     const { count } = this.state;
 
     return (
-      <button onClick={() => this.setState({ count: count + 1 })}>
-        {count}
-      </button>
+      <div style={{ padding: "5px", border: "2px solid black" }}>
+        <p>From Class Component</p>
+        <button
+          style={{ padding: "5px 10px", fontSize: "20px" }}
+          onClick={() => this.setState({ count: count + 1 })}
+        >
+          {count}
+        </button>
+      </div>
     );
   }
 }
