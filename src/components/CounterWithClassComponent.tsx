@@ -13,12 +13,9 @@ class CounterWithClass extends React.Component {
     const { count } = this.state;
 
     return (
-      <div style={{ padding: "5px", border: "2px solid black" }}>
-        <p>From Class Component</p>
-        <button
-          style={{ padding: "5px 10px", fontSize: "20px" }}
-          onClick={() => this.setState({ count: count + 1 })}
-        >
+      <div className="border-2 border-purple-600 p-2 space-y-2">
+        <p className="text-purple-600">From Class Component</p>
+        <button onClick={() => this.setState({ count: count + 1 })} className="bg-purple-500 px-5 py-2 text-white rounded-xl">
           {count}
         </button>
       </div>
