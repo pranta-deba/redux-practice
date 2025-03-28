@@ -1,6 +1,7 @@
 import CounterWithClass from "./components/CounterWithClassComponent";
 import CounterWithFuc from "./components/CounterWithFucComponent";
 import ParentCom from "./components/props_driling/ParentCom";
+import UserInfoWithUseState from "./components/UserInfoWithUseState";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <CounterWithClass />
       <CounterWithFuc />
       <ParentCom/>
+      <UserInfoWithUseState/>
     </div>
   );
 }
