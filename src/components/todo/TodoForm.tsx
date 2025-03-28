@@ -14,7 +14,7 @@ const TodoForm = () => {
       isCompleted: false,
     };
 
-    dispatch({ type: "addTodo", payload: todo });
+    dispatch({ type: "ADD_TODO", payload: todo });
   };
 
   return (

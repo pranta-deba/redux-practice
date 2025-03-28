@@ -6,29 +6,35 @@ import {
   useReducer,
 } from "react";
 
-type TTotoContext = { state: TTogo[]; dispatch: Dispatch<TAction> } | undefined;
+type TTotoContext = { state: TTodo[]; dispatch: Dispatch<TAction> } | null;
 
 type TTodoProviderProps = { children: ReactNode };
 
-type TTogo = { id: number; title: string; isCompleted: boolean };
+type TTodo = { id: number; title: string; isCompleted: boolean };
 
-type TAction = { type: "addTodo"; payload: TTogo | string };
+type TAction = { type: "ADD_TODO" | "TASK_COMPLETE"; payload: TTodo | string };
 
-export const TodoContext = createContext<TTotoContext>(undefined);
+const typeConstants = {
+  ADD_TODO: "ADD_TODO",
+  TASK_COMPLETE: "TASK_COMPLETE",
+};
+
+export const TodoContext = createContext<TTotoContext>(null);
 export const useToto = () => {
   return useContext(TodoContext);
 };
 
-const initialState: TTogo[] = [];
-const reducer = (currentState: TTogo[], action: TAction) => {
+const initialState: TTodo[] = [];
+const reducer = (currentState: TTodo[], action: TAction) => {
   switch (action.type) {
-    case "addTodo":
+    case typeConstants.ADD_TODO:
       return [...currentState, action.payload];
-    case "taskComplete":
-      return currentState.map((task) =>
-        task.id === action.payload
-          ? { ...task, isCompleted: !task.isCompleted }
-          : task
+
+    case typeConstants.TASK_COMPLETE:
+      return currentState.map((item) =>
+        item.id === action.payload
+          ? { ...item, isCompleted: !item.isCompleted }
+          : item
       );
 
     default:
