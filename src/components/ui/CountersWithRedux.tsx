@@ -1,9 +1,14 @@
-import { useDispatch, useSelector } from "react-redux";
-import { decrement, increment, incrementByValue } from "../../redux/features/counterSlice";
+import {
+  decrement,
+  increment,
+  incrementByValue,
+  incrementByValueFromObject,
+} from "../../redux/features/counterSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/hook";
 
 const CountersWithRedux = () => {
-  const { count } = useSelector((state) => state.counter);
-  const dispatch = useDispatch();
+  const { count } = useAppSelector((state) => state.counter);
+  const dispatch = useAppDispatch();
 
   return (
     <div className="flex justify-center items-center gap-7 text-2xl my-16">
@@ -25,6 +30,12 @@ const CountersWithRedux = () => {
         className="cursor-pointer bg-purple-600 px-4 py-2 text-xl rounded-2xl text-white"
       >
         Increment By 5
+      </button>
+      <button
+        onClick={() => dispatch(incrementByValueFromObject({ value: 10 }))}
+        className="cursor-pointer bg-blue-700 px-4 py-2 text-xl rounded-2xl text-white"
+      >
+        Increment By 10
       </button>
     </div>
   );
