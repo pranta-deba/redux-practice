@@ -2,7 +2,10 @@
 // import CounterWithFuc from "./components/CounterWithFucComponent";
 // import ParentCom from "./components/props_driling/ParentCom";
 // import UserInfoWithUseState from "./components/UserInfoWithUseState";
-import UserInfoWithUseReducer from "./components/UserInfoWithUseReducer";
+// import UserInfoWithUseReducer from "./components/UserInfoWithUseReducer";
+
+import TodoForm from "./components/todo/TodoForm";
+import TodoProvider from "./context/TodoProvider";
 
 function App() {
   return (
@@ -11,7 +14,11 @@ function App() {
       {/* <CounterWithFuc /> */}
       {/* <ParentCom /> */}
       {/* <UserInfoWithUseState /> */}
-      <UserInfoWithUseReducer />
+      {/* <UserInfoWithUseReducer /> */}
+
+      <TodoProvider>
+        <TodoForm />
+      </TodoProvider>
     </div>
   );
 }
