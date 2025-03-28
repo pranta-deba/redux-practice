@@ -5,6 +5,7 @@
 // import UserInfoWithUseReducer from "./components/UserInfoWithUseReducer";
 
 import TodoForm from "./components/todo/TodoForm";
+import TodoList from "./components/todo/TodoList";
 import TodoProvider from "./context/TodoProvider";
 
 function App() {
@@ -17,7 +18,10 @@ function App() {
       {/* <UserInfoWithUseReducer /> */}
 
       <TodoProvider>
-        <TodoForm />
+        <div className="flex justify-center w-full gap-10 min-h-screen">
+          <TodoForm />
+          <TodoList />
+        </div>
       </TodoProvider>
     </div>
   );

@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react";
 import { useToto } from "../../context/TodoProvider";
 
+
 const TodoForm = () => {
   const { dispatch } = useToto();
   const [task, setTask] = useState("");
@@ -17,8 +18,8 @@ const TodoForm = () => {
   };
 
   return (
-    <div className="space-y-2">
-      <h1>Add Togo</h1>
+    <div className="flex-1 space-y-2 border-2 border-purple-500 p-4">
+      <h1 className="text-center underline">Add Togo</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
