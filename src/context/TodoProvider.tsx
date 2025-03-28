@@ -12,8 +12,7 @@ type TTodoProviderProps = { children: ReactNode };
 
 type TTogo = { id: number; title: string; isCompleted: boolean };
 
-type TAction = { type: "addTodo"; payload: TTogo };
-
+type TAction = { type: "addTodo"; payload: TTogo | string };
 
 export const TodoContext = createContext<TTotoContext>(undefined);
 export const useToto = () => {
@@ -25,6 +24,12 @@ const reducer = (currentState: TTogo[], action: TAction) => {
   switch (action.type) {
     case "addTodo":
       return [...currentState, action.payload];
+    case "taskComplete":
+      return currentState.map((task) =>
+        task.id === action.payload
+          ? { ...task, isCompleted: !task.isCompleted }
+          : task
+      );
 
     default:
       return currentState;
@@ -36,7 +41,7 @@ const TodoProvider = ({ children }: TTodoProviderProps) => {
 
   const values = { state, dispatch };
 
-  console.log(state)
+  console.log(state);
 
   return <TodoContext.Provider value={values}>{children}</TodoContext.Provider>;
 };
