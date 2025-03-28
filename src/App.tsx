@@ -4,6 +4,8 @@
 // import UserInfoWithUseState from "./components/UserInfoWithUseState";
 // import UserInfoWithUseReducer from "./components/UserInfoWithUseReducer";
 
+import CountersWithRedux from "./components/ui/CountersWithRedux";
+
 // import TodoForm from "./components/todo/TodoForm";
 // import TodoList from "./components/todo/TodoList";
 // import TodoProvider from "./context/TodoProvider";
@@ -24,15 +26,7 @@ function App() {
         </div>
       </TodoProvider> */}
 
-      <div className="flex justify-center items-center gap-7 text-2xl my-16">
-        <button className="cursor-pointer bg-green-600 px-4 py-2 text-xl rounded-2xl text-white">
-          Increment
-        </button>
-        <p>0</p>
-        <button className="cursor-pointer bg-red-600 px-4 py-2 text-xl rounded-2xl text-white">
-          Decrement
-        </button>
-      </div>
+      <CountersWithRedux />
     </div>
   );
 }
