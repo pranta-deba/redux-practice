@@ -36,6 +36,8 @@ const TodoProvider = ({ children }: TTodoProviderProps) => {
 
   const values = { state, dispatch };
 
+  console.log(state)
+
   return <TodoContext.Provider value={values}>{children}</TodoContext.Provider>;
 };
 
